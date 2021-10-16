@@ -22,6 +22,7 @@ function main
         if (( $? == 1 )); then
         	dialog --yesno "现在退出?" 40 200
             if (( $? == 0 )); then
+				clear
                 exit
         	fi
 	    fi
@@ -59,6 +60,7 @@ function main
 			"16")
 				save_exit;;
 		esac
+		clear
 	done
 }
 
@@ -557,11 +559,6 @@ function filepr
 function app_check
 {
     echo "欢迎使用Qemu脚本生成器2.0 With Dialog"
-    sleep 1s
-    echo "作者:Hyper-V Manager|hyper-v管理器"
-    sleep 1s
-    echo "bili: https://space.bilibili.com/234069376"
-    sleep 3s
     echo "正在检查所需的软件"
     export not_installed=""
     if ! command -v qemu-system-x86_64 &> /dev/null; then
@@ -632,8 +629,6 @@ function install_app
     sleep 1s
     echo "检查完成"
     sleep 1s
-    echo "图形界面将在3s后启动"
-    sleep 2s
     main
 }
 
